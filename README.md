@@ -13,7 +13,10 @@ The PubSub example uses the <a href="http://www.boost.org/" target="_blank">boos
 
 To compile the projects some preparations are needed:
 
-a) Get the <a href="https://github.com/zeromq/zeromq4-x" target="_blank"> ZeroMQ v4 sources</a> from GitHub and compile it by using the prepared solution under *builds/msvc*
+a) Get the <a href="https://github.com/zeromq/zeromq4-x" target="_blank">ZeroMQ v4 sources</a> from GitHub and compile it by using the prepared solution under *builds/msvc*
+
 b) Insert the paths to ZeroMQ includes and the compiled ZeroMQ-Lib. I'd recommend to create a new environment variable called ZMQ_HOME which should point to the
 GitHub-directory where the sources of 0MQ are located. Here's how it looks like on my machine:
+
+<img src="http://fs2.directupload.net/images/150802/jpl9oru8.png" width="300" height="200">
 
