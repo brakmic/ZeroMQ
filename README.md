@@ -7,7 +7,7 @@ a) **ZeroMQ Client/Server example** (server and client projects)
 
 b) **ZeroMQ Publish/Subscribe example** (server and client projects)
 
-The PubSub example uses the <a href="http://www.boost.org/" target="_blank">boost libraries</a> for text parsing.
+The PubSub example uses the <a href="http://www.boost.org/" target="_blank">boost libraries</a> for message parsing.
 
 **Compiling**
 
