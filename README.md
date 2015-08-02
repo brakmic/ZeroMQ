@@ -20,16 +20,16 @@ b) Optionally checkout the <a href="https://github.com/imatix/zguide" target="_b
 b) Insert the paths to ZeroMQ includes and the previously compiled ZeroMQ-Lib. I'd recommend to create a new environment variable called ZMQ_HOME which should point to the
 GitHub-directory where the sources of 0MQ are located. Here's how it looks like on my machine:
 
-<img src="http://fs2.directupload.net/images/150802/jpl9oru8.png" width="300" height="200" border="1">
+<img src="http://fs2.directupload.net/images/150802/jpl9oru8.png" width="300" height="200" border="3">
 
 c) Additionally insert the path to *zhelpers.hpp* for C++ via *Project-Properties/VC++ Directories*. The *zguide* contains many examples for a lot of different languages and therefore you could use similar helper-files for other languages, too. For example C if you decide to compile everything under pure C. I have to admit that the projects in this repo use a (weird?) mixture of C/C++ but this is just because I'm now more interested in the inner workings of ZeroMQ and not in language purity ("Modern C++" vs. "traditional C++" vs. "old-school C" etc.).
 
-<img src="http://fs2.directupload.net/images/150802/wetv6ntd.png" border="1">
+<img src="http://fs2.directupload.net/images/150802/wetv6ntd.png" border="3">
 
 d) Add the path to the library (in my case it's a x64 lib-file, your architecture may differ and therefore another path/lib should be used). Here I'm using the **ZMQ_HOME** variable to point to the correct library.
 
-<img src="http://fs2.directupload.net/images/150802/a52usgh9.png" border="1">
+<img src="http://fs2.directupload.net/images/150802/a52usgh9.png" border="3">
 
 e) Add the library itself into the list of additional dependencies
 
-<img src="http://fs1.directupload.net/images/150802/gfadnb6p.png" border="1">
+<img src="http://fs1.directupload.net/images/150802/gfadnb6p.png" border="3">
