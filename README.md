@@ -26,6 +26,10 @@ c) Additionally insert the path to *zhelpers.hpp* for C++ via *Project-Propertie
 
 <img src="http://fs2.directupload.net/images/150802/wetv6ntd.png">
 
-d) Add the path to the library (in my case it's a x64 lib-file, your architecture may differ and therefore another path/lib should be used)
+d) Add the path to the library (in my case it's a x64 lib-file, your architecture may differ and therefore another path/lib should be used). Here I'm using the **ZMQ_HOME** variable to point to the correct library.
 
 <img src="http://fs2.directupload.net/images/150802/a52usgh9.png">
+
+e) Add the library itself into the list of additional dependencies
+
+<img src="http://fs1.directupload.net/images/150802/gfadnb6p.png">
