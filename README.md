@@ -1,7 +1,7 @@
 **ZeroMQ with Boost under VisualStudio 2015**
 
 
-This repository contains a VS 2015 Solution with four projects based on ZeroMQ examples:
+This repository contains a VS 2015 Solution with four projects based on <a href="http://zeromq.org/" target="_blank">ZeroMQ</a> examples:
 
 a) **ZeroMQ Client/Server example** (server and client projects)
 
