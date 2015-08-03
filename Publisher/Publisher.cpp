@@ -22,31 +22,30 @@ void stop_server(void* context, void* publisher) {
     zmq_ctx_destroy(context);
 }
 
-void send_updates(void* publisher) {
-    srandom((unsigned)time(NULL));
+void send_updates(zmq::socket_t& publisher) {
+
     while (1) {
         //get random values
         int zipcode, temperature, relhumidity;
-        zipcode = 10001;//randof(100000);
-        temperature = randof(215) - 80;
-        relhumidity = randof(50) + 10;
+        zipcode = 10001;
+        temperature = within(215) - 80;
+        relhumidity = within(50) + 10;
         auto update = boost::format("%d %d %d") % zipcode % temperature % relhumidity;
         cout << "Sending: " << update << endl;
         sleep(2000);
-        s_send(publisher, (char*)update.str().c_str());
+        s_send(publisher, update.str());
     }
 }
 
 int main(int argc, char** argv)
 {
-    void* context = NULL;
-    void* publisher = NULL;
-    show_info();
     
-    context = zmq_ctx_new();
-    publisher = zmq_socket(context, ZMQ_PUB);
-    int rc = zmq_bind(publisher, "tcp://*:5556");
-    assert(rc == 0);
+    zmq::context_t context;
+    zmq::socket_t publisher(context, ZMQ_PUB);
+    
+    show_info();
+
+    publisher.bind("tcp://*:5556");
     send_updates(publisher);
     system("PAUSE");
     stop_server(context, publisher);
