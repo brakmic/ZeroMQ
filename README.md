@@ -13,7 +13,7 @@ The PubSub example uses the <a href="http://www.boost.org/" target="_blank">boos
 
 To compile the projects some preparations are needed:
 
-a) Get the <a href="https://github.com/zeromq/zeromq4-x" target="_blank">ZeroMQ v4 sources</a> from GitHub and compile it by using the prepared solution under *builds/msvc*
+a) Get the <a href="https://github.com/zeromq/zeromq4-1" target="_blank">ZeroMQ v4.1 sources</a> from GitHub and compile it by using the prepared solution under *builds/msvc*
 
 b) Optionally checkout the <a href="https://github.com/imatix/zguide" target="_blank">zguide-repository</a>. This repository contains, among many other useful things, a nice header file called "zhelpers.hpp" which can be used for easier handling of strings, for example.  
 
