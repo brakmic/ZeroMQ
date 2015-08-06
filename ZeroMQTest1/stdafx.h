@@ -7,7 +7,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "targetver.h"
-
 #include <stdio.h>
 #include <string.h>
 #include <tchar.h>
@@ -15,10 +14,10 @@
 
 
 // TODO: reference additional headers your program requires here
-//#include <zmq.h>    
-#include <zmq.h>
-#include <zhelpers.h>
-#include <Windows.h>
+#include <zmq.hpp>
+#include <zhelpers.hpp>
 
 #define sleep(x) Sleep(x)
 #define MESSAGE_INVALID -1
+#define TASK_SUCCEEDED 1
+#define TASK_FAILED -1

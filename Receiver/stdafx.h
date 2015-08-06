@@ -21,9 +21,8 @@
 
 
 // TODO: reference additional headers your program requires here
-//#include <zmq.h>    
-#include <zmq.h>
-#include <zhelpers.h>
+#include <zmq.hpp>
+#include <zhelpers.hpp>
 #include <Windows.h>
 
 #define sleep(x) Sleep(x)

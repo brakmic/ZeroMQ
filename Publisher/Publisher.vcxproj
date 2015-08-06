@@ -74,19 +74,19 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Harris\Documents\GitHub\cppzmq;$(ZMQ_ZGUIDE)\examples\C++;$(ZMQ_CPP_INCLUDES);$(ZMQ_HOME)\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(GITHUB_HOME)\cppzmq;$(ZMQ_ZGUIDE)\examples\C++;$(GITHUB_HOME)\zeromq4-1\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\Output\$(ProjectName)\$(Configuration)\</OutDir>
-    <LibraryPath>D:\src\cpp\vs\ZeroMQ_Projects\libs\x64;$(LibraryPath)</LibraryPath>
-    <LibraryWPath>D:\src\cpp\vs\ZeroMQ_Projects\libs\x64;$(LibraryWPath)</LibraryWPath>
+    <LibraryPath>$(ZMQ_LIBS)\$(Platform);$(LibraryPath)</LibraryPath>
+    <LibraryWPath>$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(GITHUB_HOME)\cppzmq;$(GITHUB_HOME)\zguide\examples\C++;$(GITHUB_HOME)\zeromq4-1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ZMQ_LIBS);$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)\Output\$(MSBuildProjectName)\$(PlatformTarget)</OutDir>
+    <IncludePath>$(GITHUB_HOME)\cppzmq;$(ZMQ_ZGUIDE)\examples\C++;$(GITHUB_HOME)\zeromq4-1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ZMQ_LIBS)\$(Platform);$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\Output\$(MSBuildProjectName)\$(PlatformTarget)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,15 +108,17 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalOptions>/Zc:throwingNew %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\src\cpp\vs\ZeroMQ_Projects\libs\x64;$(ZMQ_HOME)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ZMQ_LIBS)\$(Platform);$(ZMQ_HOME)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libzmq.lib;czmqpp.lib;czmq.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ZMQ_HOME)\bin\$(PlatformTargetAsMSBuildArchitecture)\libzmq.dll $(OutputPath)</Command>
+      <Command>copy "$(ZMQ_LIBS)\$(Platform)\libzmq.dll" $(OutputPath)
+copy "$(ZMQ_LIBS)\$(Platform)\libsodium.dll" $(OutputPath)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -145,6 +147,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalOptions>/Zc:throwingNew %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,11 +155,11 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>czmq.lib;czmqpp.lib;libzmq.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ZMQ_LIBS)\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ZMQ_LIBS)\$(Platform);$(ZMQ_HOME)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(ZMQ_LIBS)\$(PlatformTarget)\libzmq.dll" $(OutputPath)
-copy "$(ZMQ_LIBS)\$(PlatformTarget)\libsodium.dll" $(OutputPath)</Command>
+      <Command>copy "$(ZMQ_LIBS)\$(Platform)\libzmq.dll" $(OutputPath)
+copy "$(ZMQ_LIBS)\$(Platform)\libsodium.dll" $(OutputPath)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
