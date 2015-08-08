@@ -147,7 +147,7 @@ copy $(ZMQ_LIBS)\$(Platform)\libsodium.dll $(OutputPath)</Command>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(ZMQ_LIBS)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

@@ -18,14 +18,16 @@ int main(void)
 
     int request_nbr;
     for (request_nbr = 0; request_nbr != MAX_MSGS; request_nbr++) {
+		//send a message
 		s_send(sock, "Hello");
 		printf("Sending Hello %d...\n", request_nbr);
+		sleep(2000);
+		//receive a reply, if any
 		auto reply = s_recv(sock);
         cout << "Received " << reply << endl;
     }
 
-    sleep(2);
-	sock.close();
+    sock.close();
 	context.close();
     system("PAUSE");
     return 0;
