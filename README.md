@@ -68,4 +68,4 @@ Now, compile the sources and let ZeroMQ fly :smile:
 
 **License**
 
-MIT
+[MIT](https://github.com/brakmic/ZeroMQ/blob/master/LICENSE)
