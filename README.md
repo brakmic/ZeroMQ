@@ -11,36 +11,55 @@ The PubSub example uses the <a href="http://www.boost.org/" target="_blank">boos
 
 **Compiling**
 
-To compile the projects some preparations are needed:
+To compile the projects you'll need to compile ZeroMQ and checkout some sources. The predefined settings in the VS-Solution will expand to several paths. So take care of putting them into these ENV-variables:
 
-a) Get the <a href="https://github.com/zeromq/zeromq4-1" target="_blank">ZeroMQ v4.1 sources</a> from GitHub and compile it by using the prepared solution under *builds/msvc*
+    ZMQ_HOME:        sources from zeromq/libzmq
+    ZMQ_CPP_HEADERS: sources from zeromq/cppzmq
+    ZMQ_LIBS:        binaries compiled from ZMQ_HOME directory
+    ZMQ_LIBSODIUM:   sources from jedisct1/libsodium (IMPORTANT: libsodium must go inside the libzmq-root directory so the ZMQ-lib can be compiled with libsodium support)
+    ZMQ_ZGUIDE:      sources from booksbyus/zguide 
 
-b) Optionally checkout the <a href="https://github.com/imatix/zguide" target="_blank">zguide-repository</a>. This repository contains, among many other useful things, a nice header file called "zhelpers.hpp" which can be used for easier handling of strings, for example.  
+Additionally:
 
-b) Insert the paths to ZeroMQ includes and the previously compiled ZeroMQ-Lib. I'd recommend to create a new environment variable called **ZMQ_HOM**E which should point to the
-GitHub-directory where the sources of ZeroMQ are located. Here's an example from my machine:
+* Compile *libzmq* by opening the solution under *builds/msvc/vs2015* or via batch-files under *builds/msvc/build*. As already mentioned, if you want to have libsodium support _you must checkout_ its sources inside the root directory of libzmq _before_ you compile libzmq!
+* Compile *libsodium* by using the solution under *builds/msvc/vs2015* or via batch files under *builds/msvc/build*.
+* Put the paths to the DLLs into their repsective env variables (ZMQ_LIBS & ZMQ_LIBSODIUM)
 
-<img src="http://fs2.directupload.net/images/150802/jpl9oru8.png" width="300" height="200" border="3">
+This is how the path to **ZMQ-Sources* looks like on my machine:
 
-c) Additionally insert the path to *zhelpers.hpp* for C++ via *Project-Properties/VC++ Directories*. The *zguide* contains many examples for a lot of different languages and therefore you could use similar helper-files for other languages, too. For example C if you decide to compile everything under pure C. I have to admit that the projects in this repo use a (weird?) mixture of C/C++ but this is just because I'm now more interested in the inner workings of ZeroMQ and not in language purity ("Modern C++" vs. "traditional C++" vs. "old-school C" etc.).
+<img src="http://fs5.directupload.net/images/160917/8esjgj97.png" width="746" height="217" border="3">
 
-<img src="http://fs2.directupload.net/images/150802/wetv6ntd.png" width="600" height="200" border="3">
+Here's the path to the **compiled Libsodium-binary** (notice the root directory that belongs to ZeroMQ):
 
-d) Add the path to the library (in my case it's a x64 lib-file, your architecture may differ and therefore another path/lib should be used). Here I'm using the **ZMQ_HOME** variable to point to the correct library.
+<img src="http://fs5.directupload.net/images/160917/p8wc2mab.png" width="746" height="217" border="3"/> 
 
-<img src="http://fs2.directupload.net/images/150802/a52usgh9.png" width="600" height="200" border="3">
+* Additionally insert the base path of *zguide* where the C++ helper-headers reside. This is not mandatory but these header files contain many helpful functions & macros.
 
-e) Add the library itself into the list of additional dependencies
+<img src="http://fs5.directupload.net/images/160917/fzw2fowk.png" width="746" height="217" border="3">
+
+* And this is how we reference them in our projects:
+
+<img src="http://fs5.directupload.net/images/160917/fes5mm3n.png" />
+
+* ZMQ-Binaries have their own env-variable, of course. Depending on what architecture and toolset are being used the predefined variables in VS2015 will expand to their x86/x64 & Debug/Release versions.
+
+<img src="http://fs5.directupload.net/images/160917/8ekhuyv9.png" width="746" height="217" border="3"/>
+
+* Here's how it looks like in VS-Project Properties:
+
+<img src="http://fs5.directupload.net/images/160917/lw8pk973.png" width="776" height="366" border="3">
+
+* The ZeroMQ **static library** is also in the list of additional dependencies.
 
 <img src="http://fs1.directupload.net/images/150802/gfadnb6p.png" width="600" height="200" border="3">
 
-f) To properly run client/server apps based on ZeroMQ one needs their DLL too. I'd recommend to create a Post-Build-Event which will be executed on each successful build:
+* To properly run client/server apps based on ZeroMQ we need the *ZeroMQ-DLL* for **dynamic binding**. There's already a *Post-Build-Event* that'll be executed after each successful build:
 
 <img src="http://fs1.directupload.net/images/150802/6fk2vh8y.png" width="600" height="200" border="3">
 
-This is the command from my machine (it should be adapted regarding paths and env-vars):
+It copies ZeroMQ- & Libsodium-DLLs to the output path of the current binary:
 
-*copy $(ZMQ_HOME)\bin\$(PlatformTargetAsMSBuildArchitecture)\libzmq.dll $(OutputPath)*
+<img src="http://fs5.directupload.net/images/160917/zgmvvgm9.png" width="786" height="404" border="3"/>
 
 
 Now, compile the sources and let ZeroMQ fly :smile:
@@ -48,4 +67,5 @@ Now, compile the sources and let ZeroMQ fly :smile:
 <img src="http://fs2.directupload.net/images/150802/iuea28nd.png">
 
 **License**
+
 MIT
