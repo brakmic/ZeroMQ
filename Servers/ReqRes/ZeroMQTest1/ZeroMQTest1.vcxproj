@@ -119,7 +119,8 @@
       <AdditionalDependencies>libzmq.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ZMQ_LIBS)\$(Platform)\$(Configuration)\$(DefaultPlatformToolset)\dynamic\libzmq.dll $(OutputPath)</Command>
+      <Command>copy $(ZMQ_LIBS)\$(Platform)\$(Configuration)\$(DefaultPlatformToolset)\dynamic\libzmq.dll $(OutputPath)
+copy $(ZMQ_LIBSODIUM)\$(Platform)\$(Configuration)\$(DefaultPlatformToolset)\dynamic\libsodium.dll $(OutputPath)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

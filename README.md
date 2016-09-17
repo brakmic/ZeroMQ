@@ -23,7 +23,7 @@ Additionally:
 
 * Compile *libzmq* by opening the solution under *builds/msvc/vs2015* or via batch-files under *builds/msvc/build*. As already mentioned, if you want to have libsodium support _you must checkout_ its sources inside the root directory of libzmq _before_ you compile libzmq!
 * Compile *libsodium* by using the solution under *builds/msvc/vs2015* or via batch files under *builds/msvc/build*.
-* Put the paths to the DLLs into their repsective env variables (ZMQ_LIBS & ZMQ_LIBSODIUM)
+* Put the paths to the DLLs into their respective env variables (ZMQ_LIBS & ZMQ_LIBSODIUM)
 
 This is how the path to **ZMQ-Sources* looks like on my machine:
 
