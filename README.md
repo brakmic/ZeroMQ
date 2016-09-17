@@ -55,10 +55,6 @@ Here's the path to the **compiled Libsodium-binary** (notice the root directory 
 
 * To properly run client/server apps based on ZeroMQ we need the *ZeroMQ-DLL* for **dynamic binding**. There's already a *Post-Build-Event* that'll be executed after each successful build:
 
-<img src="http://fs1.directupload.net/images/150802/6fk2vh8y.png" width="600" height="200" border="3">
-
-It copies ZeroMQ- & Libsodium-DLLs to the output path of the current binary:
-
 <img src="http://fs5.directupload.net/images/160917/zgmvvgm9.png" width="786" height="404" border="3"/>
 
 
