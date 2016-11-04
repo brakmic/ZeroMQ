@@ -74,7 +74,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ZMQ_CPP_HEADERS);$(GITHUB_HOME)\cppzmq;$(ZMQ_ZGUIDE)\examples\C++;$(IncludePath)</IncludePath>
+    <IncludePath>$(ZMQ_CPP_HEADERS);$(GITHUB_HOME)\zeromq4-1\include;$(ZMQ_ZGUIDE)\examples\C++;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\Output\$(ProjectName)\$(Configuration)\</OutDir>
     <LibraryPath>$(ZMQ_LIBS)\$(Platform)\$(Configuration)\$(DefaultPlatformToolset)\dynamic;$(LibraryPath)</LibraryPath>
     <LibraryWPath>$(WindowsSDK_MetadataPath);</LibraryWPath>
@@ -84,7 +84,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ZMQ_CPP_HEADERS);$(GITHUB_HOME)\cppzmq;$(ZMQ_ZGUIDE)\examples\C++;$(IncludePath)</IncludePath>
+    <IncludePath>$(ZMQ_CPP_HEADERS);$(GITHUB_HOME)\zeromq4-1\include;$(ZMQ_ZGUIDE)\examples\C++;$(IncludePath)</IncludePath>
     <LibraryPath>$(ZMQ_LIBS)\$(Platform)\$(Configuration)\$(DefaultPlatformToolset)\dynamic;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\Output\$(MSBuildProjectName)\$(PlatformTarget)\</OutDir>
   </PropertyGroup>
